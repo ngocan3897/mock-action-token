@@ -42,11 +42,19 @@
 <body>
     <div id="payment-form-container"></div>
     <button id="pay-button" onclick="pay()">Pay</button>
+
+     <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const ppid = urlParams.get("ppid");
+        document.getElementById("output").textContent = ppid
+          ? `PPID: ${ppid}`
+          : "Không có ppid trong URL";
+      </script>
 </body>
 <script>
     var SDKConfiguration = {
         container: 'payment-form-container',
-        ppid: 'J7NG4X5C90LWDUD7BDFP6YUYGZ6QW7FR',
+        ppid: ppid,
         environment: 'pdt',
         locale: 'en-GB',
         options: {}
